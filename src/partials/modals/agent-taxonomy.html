@@ -1,0 +1,49 @@
+<div id="agentTaxonomyModal" class="modal-backdrop hidden" data-modal>
+  <div class="modal-panel max-w-3xl">
+    <div class="modal-header">
+      <div>
+        <span class="text-[10px] font-mono text-technical-orange font-bold uppercase">SYSTEM ARCHITECTURE SPECIFICATION</span>
+        <h2 class="font-mono font-bold text-base uppercase text-drafting-ink">AGENT TAXONOMY &amp; WORKFLOW STAGES</h2>
+      </div>
+      <button class="modal-close" data-modal-close>✕ CLOSE</button>
+    </div>
+
+    <div class="font-mono text-xs space-y-4 text-neutral-800">
+      <p class="leading-relaxed">
+        The workflow moves software delivery from manual ticket juggling to an orchestrated multi-agent process. A human sets the goal, specialized agents execute each stage, and a human approves the result.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div class="spec-card">
+          <div class="font-bold text-drafting-ink mb-1 text-xs">STAGE 01 : CONCEPT</div>
+          <p class="text-[11px] text-neutral-600 leading-relaxed">
+            <strong>Requirements &amp; Architect agents:</strong> Turn a human goal into stories, acceptance criteria, system design, and atomic tasks, informed by codebase context.
+          </p>
+        </div>
+
+        <div class="spec-card">
+          <div class="font-bold text-drafting-ink mb-1 text-xs">STAGE 02 : PARALLEL BUILD</div>
+          <p class="text-[11px] text-neutral-600 leading-relaxed">
+            <strong>Orchestrator &amp; developer agents:</strong> The orchestrator dispatches atomic tasks to backend, frontend, and domain agents working in parallel, then integrates the results.
+          </p>
+        </div>
+
+        <div class="spec-card">
+          <div class="font-bold text-drafting-ink mb-1 text-xs">STAGE 03 : VALIDATION</div>
+          <p class="text-[11px] text-neutral-600 leading-relaxed">
+            <strong>PR &amp; QA agents:</strong> Assemble the changeset, run functional and regression tests, review security and quality, and consolidate the evidence into one PR dossier.
+          </p>
+        </div>
+      </div>
+
+      <div class="spec-card space-y-2">
+        <div class="font-bold text-technical-orange text-xs uppercase">Human Touchpoints</div>
+        <ul class="list-disc list-inside space-y-1 text-[11px] text-neutral-700">
+          <li><strong>Goal definition :</strong> A human defines scope boundaries and guardrails before any agent starts.</li>
+          <li><strong>Advisor on demand :</strong> Agents escalate trade-offs, specification gaps, and merge conflicts to a human advisor.</li>
+          <li><strong>Final gate :</strong> A human accepts the PR dossier and approves the merge; rework flows back to the orchestrator.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

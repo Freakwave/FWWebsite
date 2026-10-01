@@ -1,0 +1,88 @@
+/* Workflow diagram: all presentation lives here, the SVG partials carry geometry only. */
+@layer components {
+  .wf {
+    --wf-ink: #111827;
+    --wf-text: #374151;
+    --wf-muted: #6e675b;
+    --wf-line: #7b7364;
+    --wf-frame: #8d877b;
+    --wf-human: theme('colors.human');
+    --wf-human-soft: theme('colors.human-soft');
+    --wf-advisory: theme('colors.advisory');
+    --wf-rework: theme('colors.gate-amber');
+    @apply font-mono select-none;
+  }
+
+  /* Sheet chrome */
+  .wf-grid__cell { fill: none; stroke: #ddd6c7; stroke-width: 0.5; }
+  .wf-grid__dot { fill: #bbb19e; }
+  .wf-sheet__border { fill: none; stroke: var(--wf-line); stroke-width: 0.8; }
+  .wf-sheet__guide { fill: none; stroke: var(--wf-line); stroke-width: 0.7; stroke-dasharray: 2 4; }
+  .wf-sheet__tick { stroke: var(--wf-line); stroke-width: 0.65; }
+  .wf-sheet__title { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; fill: var(--wf-text); }
+  .wf-sheet__note { font-size: 8px; fill: var(--wf-text); }
+  .wf-sheet__footnote { font-size: 7px; fill: var(--wf-muted); }
+  .wf-end { text-anchor: end; }
+
+  /* Phase frames */
+  .wf-phase__frame { fill: #fff; fill-opacity: 0.36; stroke: var(--wf-frame); stroke-width: 1; }
+  .wf-phase__index { font-size: 9px; font-weight: 700; fill: var(--wf-human); }
+  .wf-phase__title { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; fill: var(--wf-ink); }
+  .wf-phase__rule { stroke: var(--wf-frame); stroke-width: 0.8; }
+
+  /* Nodes: default is an agent card */
+  .wf-node { cursor: pointer; outline: none; }
+  .wf-node__box { fill: #fff; stroke: var(--wf-ink); stroke-width: 1.5; }
+  .wf-node__header { fill: var(--wf-ink); }
+  .wf-node__kicker { font-size: 8px; font-weight: 700; fill: #fff; }
+  .wf-node__title { font-size: 10px; font-weight: 700; fill: var(--wf-ink); }
+  .wf-node__meta { font-size: 9px; fill: #57534e; }
+  .wf-node__mark { fill: none; stroke: var(--wf-human); stroke-width: 1.5; }
+  .wf-node:hover .wf-node__box,
+  .wf-node:focus-visible .wf-node__box { stroke: theme('colors.technical-orange'); stroke-width: 2.2; }
+
+  .wf-node--sm .wf-node__kicker { font-size: 7px; }
+  .wf-node--sm .wf-node__title { font-size: 9px; }
+  .wf-node--sm .wf-node__meta { font-size: 8px; }
+
+  .wf-node--human .wf-node__box { fill: var(--wf-human-soft); stroke: var(--wf-human); stroke-width: 1.8; }
+  .wf-node--human .wf-node__header { fill: var(--wf-human); }
+  .wf-node--human .wf-node__title { fill: #292524; }
+
+  .wf-node--artifact .wf-node__box { fill: #f3f4f6; stroke: #9ca3af; stroke-width: 1; }
+  .wf-node--artifact .wf-node__header { fill: var(--wf-text); }
+
+  .wf-node--store .wf-node__box { fill: var(--wf-text); stroke: #1f2937; }
+  .wf-node--store .wf-node__title { fill: #fff; }
+  .wf-node--store .wf-node__meta { fill: #e5e7eb; }
+
+  /* Links and markers */
+  .wf-link { fill: none; stroke: var(--wf-text); stroke-width: 2; }
+  .wf-link--context { stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .wf-link--advisory { stroke: var(--wf-advisory); stroke-width: 1.4; stroke-dasharray: 5 4; }
+  .wf-link--rework { stroke: var(--wf-rework); stroke-width: 1.8; stroke-dasharray: 6 4; }
+  .wf-arrow { fill: var(--wf-text); }
+  .wf-arrow--advisory { fill: var(--wf-advisory); }
+  .wf-arrow--rework { fill: var(--wf-rework); }
+  .wf-label { font-size: 8px; font-weight: 700; fill: var(--wf-text); }
+  .wf-label--advisory { fill: var(--wf-advisory); }
+  .wf-label--rework { fill: var(--wf-rework); }
+  .wf-label--center { text-anchor: middle; }
+
+  /* View filters are driven by data-view on the root and data-kind on elements */
+  .wf [data-kind] { transition: opacity 0.2s ease-in-out; }
+  .wf:not([data-view='all']) [data-kind] { opacity: 0.25; }
+  .wf[data-view='agents'] [data-kind='agent'],
+  .wf[data-view='advisory'] [data-kind='advisory'],
+  .wf[data-view='human'] [data-kind='human'] { opacity: 1; }
+
+  /* Simulation packet */
+  .wf-packet {
+    fill: theme('colors.gate-amber');
+    stroke: #fff;
+    stroke-width: 2;
+    opacity: 0;
+    transition: cx 0.3s ease-in-out, cy 0.3s ease-in-out, opacity 0.2s;
+  }
+  .wf-packet[data-active='true'] { opacity: 1; }
+}

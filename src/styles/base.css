@@ -1,0 +1,20 @@
+@layer base {
+  :root {
+    --ink: #111111;
+    --paper: #f4f1ea;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.45) 0%, transparent 80%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(207, 200, 186, 0.35) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(207, 200, 186, 0.35) 40px);
+    background-size: auto, 40px 40px, 40px 40px;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-thumb { background: #b7b0a2; }
+  ::-webkit-scrollbar-track { background: #eae5d9; }
+}

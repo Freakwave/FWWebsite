@@ -2,7 +2,7 @@ import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./architectural_landing_page.html', './src/**/*.{html,js}'],
+  content: ['./architectural_landing_page.html', './src/**/*.{html,js,svg}'],
   theme: {
     extend: {
       colors: {
@@ -17,6 +17,9 @@ export default {
         'gate-emerald': '#008744',
         'gate-amber': '#d97706',
         'hitl-blue': '#1e40af',
+        human: '#b45309',
+        'human-soft': '#fffaf3',
+        advisory: '#1d4ed8',
       },
       fontFamily: {
         sans: ['Space Grotesk', 'sans-serif'],

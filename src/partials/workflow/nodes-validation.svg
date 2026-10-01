@@ -1,0 +1,26 @@
+<g id="node-pr-agent" class="wf-node wf-node--sm" data-node-key="pr-agent" data-kind="agent" tabindex="0" role="button" aria-label="Pull request agent">
+  <rect class="wf-node__box" x="110" y="530" width="200" height="48"/>
+  <rect class="wf-node__header" x="110" y="530" width="200" height="17"/>
+  <text class="wf-node__kicker" x="119" y="542">PULL REQUEST / CHANGESET</text>
+  <text class="wf-node__title" x="121" y="562">Pull request agent</text>
+  <text class="wf-node__meta" x="121" y="573">Changes &amp; evidence</text>
+</g>
+<g id="node-qa-tests" class="wf-node wf-node--sm" data-node-key="qa-tests" data-kind="agent" tabindex="0" role="button" aria-label="QA test agent">
+  <rect class="wf-node__box" x="375" y="530" width="205" height="48"/>
+  <rect class="wf-node__header" x="375" y="530" width="205" height="17"/>
+  <text class="wf-node__kicker" x="384" y="542">QA-01 / VERIFICATION</text>
+  <text class="wf-node__title" x="386" y="562">QA test agent</text>
+  <text class="wf-node__meta" x="386" y="573">Functional &amp; regression tests</text>
+</g>
+<g id="node-qa-security" class="wf-node wf-node--sm" data-node-key="qa-security" data-kind="agent" tabindex="0" role="button" aria-label="Security and quality agent">
+  <rect class="wf-node__box" x="635" y="530" width="205" height="48"/>
+  <rect class="wf-node__header" x="635" y="530" width="205" height="17"/>
+  <text class="wf-node__kicker" x="644" y="542">QA-02 / ASSURANCE</text>
+  <text class="wf-node__title" x="646" y="562">Security &amp; quality agent</text>
+  <text class="wf-node__meta" x="646" y="573">Risk &amp; code review</text>
+</g>
+<g id="node-dossier" class="wf-node wf-node--artifact wf-node--sm" data-node-key="dossier" data-kind="support" tabindex="0" role="button" aria-label="Consolidated PR dossier">
+  <rect class="wf-node__box" x="885" y="530" width="235" height="48"/>
+  <text class="wf-node__title" x="895" y="555">CONSOLIDATED PR DOSSIER</text>
+  <text class="wf-node__meta" x="895" y="569">Diff / tests / review notes</text>
+</g>

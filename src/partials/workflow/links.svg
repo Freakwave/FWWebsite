@@ -1,0 +1,32 @@
+<!-- Primary flow -->
+<path class="wf-link" d="M 300 82 H 365" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 500 112 V 187" marker-end="url(#wfArrow)"/>
+<path class="wf-link wf-link--context" d="M 665 206 H 575" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 450 245 V 262 H 560" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 685 279 V 315" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 590 367 V 424 H 225 V 434" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 590 367 V 434" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 590 424 H 975 V 434" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 225 474 V 500 H 240 M 600 474 V 500 H 240 M 975 474 V 500 H 240"/>
+<path class="wf-link" d="M 240 500 V 530" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 310 554 H 375" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 210 578 V 588 H 737 V 578" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 477 578 V 596 H 960 V 578" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 840 554 H 885" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 1050 578 V 610 H 415 V 620" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 530 649 H 600" marker-end="url(#wfArrow)"/>
+<path class="wf-link" d="M 805 649 H 900" marker-end="url(#wfArrow)"/>
+
+<!-- Rework feedback to the orchestrator -->
+<path class="wf-link wf-link--rework" d="M 300 649 H 24 V 341 H 470" marker-end="url(#wfArrowRework)"/>
+<text class="wf-label wf-label--rework" x="36" y="334">FEEDBACK / REWORK</text>
+
+<!-- Advisory escalations to the human advisor -->
+<g data-kind="advisory">
+  <path class="wf-link wf-link--advisory" d="M 870 215 H 945" marker-end="url(#wfArrowAdvisory)"/>
+  <text class="wf-label wf-label--advisory wf-label--center" x="907" y="205">TRADE-OFFS</text>
+  <path class="wf-link wf-link--advisory" d="M 1050 382 V 263" marker-end="url(#wfArrowAdvisory)"/>
+  <text class="wf-label wf-label--advisory" x="1058" y="330">SPEC QUESTIONS</text>
+  <path class="wf-link wf-link--advisory" d="M 1155 548 H 1175 V 229 H 1155" marker-end="url(#wfArrowAdvisory)"/>
+  <text class="wf-label wf-label--advisory wf-label--center" x="1168" y="400" transform="rotate(-90 1168 400)">MERGE CONFLICTS</text>
+</g>

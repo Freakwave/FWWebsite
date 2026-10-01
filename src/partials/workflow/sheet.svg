@@ -1,0 +1,8 @@
+<rect width="1200" height="700" fill="url(#wfGrid)"/>
+<rect class="wf-sheet__border" x="16" y="16" width="1168" height="668"/>
+<path class="wf-sheet__guide" d="M 16 40 H 1184 M 16 604 H 1184"/>
+<rect x="0" y="12" width="1200" height="10" fill="url(#wfTicks)"/>
+<text class="wf-sheet__title" x="38" y="34">FIG. 94-M / HUMAN-LED, AGENT-EXECUTED DELIVERY WORKFLOW</text>
+<text class="wf-sheet__note wf-end" x="1160" y="34">INTAKE / DESIGN / BUILD / VALIDATE / RELEASE</text>
+<text class="wf-sheet__footnote" x="36" y="599">SYSTEM FLOW / REV. 04 / HUMAN AUTHORITY RETAINED AT DECISION GATES</text>
+<text class="wf-sheet__footnote wf-end" x="1172" y="599">NOT TO SCALE</text>

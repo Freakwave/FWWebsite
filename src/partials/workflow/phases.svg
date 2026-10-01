@@ -1,0 +1,14 @@
+<rect class="wf-phase__frame" x="250" y="145" width="620" height="145"/>
+<text class="wf-phase__index" x="266" y="167">01 /</text>
+<text class="wf-phase__title" x="300" y="167">CONCEPT &amp; DECOMPOSITION</text>
+<line class="wf-phase__rule" x1="266" y1="174" x2="854" y2="174"/>
+
+<rect class="wf-phase__frame" x="45" y="382" width="1110" height="105"/>
+<text class="wf-phase__index" x="61" y="402">02 /</text>
+<text class="wf-phase__title" x="95" y="402">PARALLEL DEVELOPMENT</text>
+<line class="wf-phase__rule" x1="61" y1="409" x2="1139" y2="409"/>
+
+<rect class="wf-phase__frame" x="45" y="495" width="1110" height="105"/>
+<text class="wf-phase__index" x="61" y="515">03 /</text>
+<text class="wf-phase__title" x="95" y="515">PR CREATION &amp; VALIDATION</text>
+<line class="wf-phase__rule" x1="61" y1="522" x2="1139" y2="522"/>

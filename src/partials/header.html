@@ -2,7 +2,7 @@
 <header class="border-b border-blueprint-border bg-parchment/95 backdrop-blur-sm z-30 sticky top-0 text-xs">
   <div class="max-w-[1800px] mx-auto grid grid-cols-12 divide-x divide-blueprint-border">
     <div class="col-span-8 sm:col-span-5 md:col-span-4 lg:col-span-3 px-4 sm:px-6 py-3 flex items-center justify-between">
-      <a href="javascript:void(0)" id="brandResetBtn" class="flex items-center gap-3 group">
+      <a href="javascript:void(0)" id="brandResetBtn" data-action="reset-view" class="flex items-center gap-3 group">
         <div class="w-8 h-8 border border-drafting-ink relative flex items-center justify-center p-1 bg-parchment-subtle group-hover:bg-technical-orange group-hover:text-white transition-colors duration-150 shadow-sm">
           <svg viewBox="0 0 24 24" class="w-full h-full stroke-current fill-none stroke-[2]">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -18,16 +18,16 @@
       </a>
     </div>
     <nav class="hidden md:flex col-span-4 lg:col-span-6 items-center divide-x divide-blueprint-border">
-      <button id="navExpBtn" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
+      <button id="navExpBtn" data-modal-target="experienceModal" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
         <span>CAREER_TRACK</span><span class="text-[9px] text-neutral-500 font-normal">[KEYSIGHT / TU]</span>
       </button>
-      <button id="navAgentTaxonomyBtn" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
+      <button id="navAgentTaxonomyBtn" data-modal-target="agentTaxonomyModal" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
         <span>AGENT_TAXONOMY</span><span class="text-[9px] text-neutral-500 font-normal">[SPECS]</span>
       </button>
-      <button id="navGovernanceBtn" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
+      <button id="navGovernanceBtn" data-modal-target="governanceModal" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
         <span>HITL_GOVERNANCE</span><span class="text-[9px] text-neutral-500 font-normal">[SAFETY]</span>
       </button>
-      <button id="navDossierBtn" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
+      <button id="navDossierBtn" data-modal-target="dossierModal" class="px-5 py-4 text-neutral-800 hover:text-drafting-ink hover:bg-black/5 font-mono tracking-wider transition-colors flex items-center gap-1.5">
         <span>PROFILE_DOSSIER</span>
       </button>
     </nav>

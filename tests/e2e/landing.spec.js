@@ -10,23 +10,19 @@ test('landing page loads and exposes key interactions', async ({ page }) => {
 
   await page.getByRole('button', { name: /CAREER_TRACK/i }).click();
   await expect(page.locator('#experienceModal')).toBeVisible();
-  await page.locator('#experienceModal .closeModalBtn').click();
+  await page.locator('#experienceModal [data-modal-close]').click();
   await expect(page.locator('#experienceModal')).toBeHidden();
 
   await page.locator('#viewAgentsBtn').click();
   await expect(page.locator('#currentViewModeLabel')).toContainText('AUTONOMOUS AGENTS');
-  await page.locator('#dismissCalloutBtn').click();
-  await expect(page.locator('#inspectorBadge')).toBeHidden();
+  await expect(page.locator('#multiAgentSvg')).toHaveAttribute('data-view', 'agents');
+  await expect(page.locator('#node-human-goal')).toHaveCSS('opacity', '0.25');
+  await page.locator('#viewAllBtn').click();
 
-  await page.locator('#node-agent-01').click();
-  await expect(page.locator('#inspectorNodeTitle')).toContainText('AGENT-01');
+  await page.locator('#node-requirements').click();
+  await expect(page.locator('[data-field="title"]')).toContainText(/Requirements Agent/i);
   await page.locator('#closeDrawerBtn').click();
   await expect(page.locator('#inspectorDrawer')).toHaveClass(/translate-x-full/);
-
-  await page.locator('#toggleAlertBtn').click();
-  await page.locator('#resolveEscalationBtn').click();
-  await expect(page.locator('#hudPipelineStatus')).toContainText('CLEARED');
-  await page.locator('#resolveEscalationBtn').click();
 
   await expect(page.locator('#navContactBtn')).toHaveCount(0);
   await expect(page.locator('#contactForm')).toHaveCount(0);
@@ -34,7 +30,16 @@ test('landing page loads and exposes key interactions', async ({ page }) => {
   expect(pageErrors).toEqual([]);
 });
 
-test('supports a mobile viewport, zoom, and blocked simulation', async ({ browser }) => {
+test('renders the workflow diagram with unique ids and no legacy pipeline', async ({ page }) => {
+  await page.goto('/');
+  const ids = await page.locator('[id]').evaluateAll((elements) => elements.map((element) => element.id));
+  expect(ids.filter((id, index) => ids.indexOf(id) !== index)).toEqual([]);
+  await expect(page.locator('#multiAgentSvg [data-node-key]')).toHaveCount(17);
+  await expect(page.locator('#node-human-gate')).toContainText('Acceptance & merge approval');
+  await expect(page.locator('#node-hitl-01, #node-agent-01, #inspectorBadge')).toHaveCount(0);
+});
+
+test('supports a mobile viewport, zoom, and a full simulation run', async ({ browser }) => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await page.goto('/');
   await expect(page.getByRole('heading', { name: /AUTONOMOUS AGENT WORKFLOWS/i })).toBeVisible();
@@ -43,8 +48,9 @@ test('supports a mobile viewport, zoom, and blocked simulation', async ({ browse
   await expect(page.locator('#blueprintCanvasWrapper')).toHaveCSS('transform', /matrix\(1\.15/);
 
   await page.locator('#runSimBtn').click();
-  await expect(page.locator('#toastMessage')).toContainText('Transmitting simulated PRD');
-  await expect(page.locator('#runSimBtn')).toBeEnabled({ timeout: 8_000 });
-  await expect(page.locator('#toastMessage')).toContainText('Simulation blocked at HITL-02');
+  await expect(page.locator('#toastMessage')).toContainText('Transmitting simulated work-package');
+  await expect(page.locator('#runSimBtn')).toBeDisabled();
+  await expect(page.locator('#runSimBtn')).toBeEnabled({ timeout: 15_000 });
+  await expect(page.locator('#toastMessage')).toContainText('Simulation complete');
   await page.close();
 });

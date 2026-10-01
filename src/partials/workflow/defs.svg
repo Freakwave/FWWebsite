@@ -1,0 +1,18 @@
+<defs>
+  <pattern id="wfGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+    <rect class="wf-grid__cell" width="24" height="24"/>
+    <circle class="wf-grid__dot" cx="12" cy="12" r="0.5"/>
+  </pattern>
+  <pattern id="wfTicks" x="0" y="12" width="48" height="12" patternUnits="userSpaceOnUse">
+    <path class="wf-sheet__tick" d="M 0 0 V 7 M 24 0 V 10"/>
+  </pattern>
+  <marker id="wfArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path class="wf-arrow" d="M 0 1 L 10 5 L 0 9 z"/>
+  </marker>
+  <marker id="wfArrowAdvisory" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path class="wf-arrow wf-arrow--advisory" d="M 0 1 L 10 5 L 0 9 z"/>
+  </marker>
+  <marker id="wfArrowRework" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path class="wf-arrow wf-arrow--rework" d="M 0 1 L 10 5 L 0 9 z"/>
+  </marker>
+</defs>

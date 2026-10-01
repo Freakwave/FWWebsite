@@ -1,0 +1,21 @@
+<g id="node-human-gate" class="wf-node wf-node--human" data-node-key="human-gate" data-kind="human" tabindex="0" role="button" aria-label="Final human gate">
+  <rect class="wf-node__box" x="300" y="620" width="230" height="58"/>
+  <rect class="wf-node__header" x="300" y="620" width="230" height="18"/>
+  <text class="wf-node__kicker" x="309" y="633">HUMAN / FINAL AUTHORITY</text>
+  <text class="wf-node__title" x="315" y="656">Acceptance &amp; merge approval</text>
+  <text class="wf-node__meta" x="315" y="670">Decision gate</text>
+</g>
+<g id="node-release" class="wf-node" data-node-key="release" data-kind="agent" tabindex="0" role="button" aria-label="Release agent">
+  <rect class="wf-node__box" x="600" y="620" width="205" height="58"/>
+  <rect class="wf-node__header" x="600" y="620" width="205" height="18"/>
+  <text class="wf-node__kicker" x="609" y="633">AGENT-06 / RELEASE</text>
+  <text class="wf-node__title" x="615" y="656">Docs &amp; release package</text>
+  <text class="wf-node__meta" x="615" y="670">Staging preparation</text>
+</g>
+<g id="node-staging" class="wf-node wf-node--artifact" data-node-key="staging" data-kind="support" tabindex="0" role="button" aria-label="Staging deployment">
+  <rect class="wf-node__box" x="900" y="620" width="220" height="58"/>
+  <rect class="wf-node__header" x="900" y="620" width="220" height="18"/>
+  <text class="wf-node__kicker" x="909" y="633">DELIVERY / COMPLETE</text>
+  <text class="wf-node__title" x="915" y="656">Staging deployment</text>
+  <text class="wf-node__meta" x="915" y="670">Documentation updated</text>
+</g>

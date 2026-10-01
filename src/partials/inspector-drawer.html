@@ -1,0 +1,49 @@
+<div id="inspectorDrawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-parchment border-l-2 border-drafting-ink shadow-2xl z-50 transform translate-x-full pointer-events-none transition-transform duration-300 flex flex-col justify-between">
+  <div class="p-6 overflow-y-auto">
+    <div class="flex items-center justify-between border-b border-blueprint-border pb-3 mb-4">
+      <div>
+        <span data-field="category" class="text-[10px] font-mono uppercase text-technical-orange font-bold">WORKFLOW NODE</span>
+        <h2 data-field="title" class="font-mono font-bold text-base uppercase text-drafting-ink">NODE SPECIFICATION</h2>
+      </div>
+      <button id="closeDrawerBtn" class="modal-close">✕ CLOSE</button>
+    </div>
+
+    <div class="space-y-4 font-mono text-xs">
+      <div class="bg-parchment-subtle p-3 border border-blueprint-border">
+        <div class="text-[10px] text-neutral-500 uppercase">Operational Function</div>
+        <div data-field="summary" class="font-bold text-sm text-drafting-ink">Select a workflow stage to view its specification.</div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="stat-card"><span class="text-[9px] text-neutral-500 block uppercase">Ownership / Role</span><span data-field="owner" class="font-bold"></span></div>
+        <div class="stat-card"><span class="text-[9px] text-neutral-500 block uppercase">Executor</span><span data-field="executor" class="font-bold"></span></div>
+        <div class="stat-card"><span class="text-[9px] text-neutral-500 block uppercase">Trigger</span><span data-field="trigger" class="font-bold"></span></div>
+        <div class="stat-card"><span class="text-[9px] text-neutral-500 block uppercase">Governance Mode</span><span data-field="mode" class="font-bold"></span></div>
+      </div>
+
+      <div>
+        <span class="text-[10px] font-bold text-neutral-700 uppercase block mb-1.5">Input &amp; Output Artifacts</span>
+        <div class="border border-blueprint-border p-2.5 bg-white/60 space-y-1 text-[11px]">
+          <div><span class="text-neutral-500">INPUT:</span> <span data-field="inputs" class="text-neutral-800"></span></div>
+          <div><span class="text-neutral-500">OUTPUT:</span> <span data-field="outputs" class="text-neutral-800"></span></div>
+        </div>
+      </div>
+
+      <div>
+        <span class="text-[10px] font-bold text-neutral-700 uppercase block mb-1.5">Verification &amp; Guardrails</span>
+        <ul data-field-list="guardrails" class="space-y-1 text-[11px] list-disc list-inside text-neutral-800 bg-white/50 p-2.5 border border-blueprint-border"></ul>
+      </div>
+
+      <div>
+        <span class="text-[10px] font-bold text-neutral-700 uppercase block mb-1">Architecture Notes</span>
+        <p data-field="notes" class="text-[11px] text-neutral-600 bg-parchment-subtle p-2 border border-blueprint-border leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 border-t border-blueprint-border bg-parchment-subtle">
+    <button id="copyNodeSpecBtn" class="w-full bg-drafting-ink hover:bg-neutral-800 text-white font-mono text-xs py-2.5 uppercase tracking-wider font-bold transition-colors">
+      Export Node JSON Schema ↵
+    </button>
+  </div>
+</div>

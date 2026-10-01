@@ -1,0 +1,17 @@
+<div class="absolute top-3 left-3 z-30 flex flex-wrap items-center gap-1.5 text-xs font-mono">
+  <span class="text-[10px] text-neutral-500 mr-1 hidden sm:inline">VIEW:</span>
+  <button id="viewAllBtn" class="toolbar-btn" data-view-mode="all" aria-pressed="true">All Systems</button>
+  <button id="viewAgentsBtn" class="toolbar-btn" data-view-mode="agents" aria-pressed="false">Autonomous Agents</button>
+  <button id="viewAdvisoryBtn" class="toolbar-btn" data-view-mode="advisory" aria-pressed="false">Advisory Paths</button>
+  <button id="viewHumanBtn" class="toolbar-btn" data-view-mode="human" aria-pressed="false">Human Checkpoints</button>
+
+  <button id="runSimBtn" class="ml-2 px-3 py-1 bg-technical-orange hover:bg-technical-orange-hover disabled:opacity-60 text-white font-bold text-[11px] uppercase tracking-wider transition-colors shadow-xs">
+    ▶ Run workflow simulation
+  </button>
+
+  <div class="flex items-center ml-1 border border-blueprint-border bg-parchment divide-x divide-blueprint-border">
+    <button id="zoomInBtn" title="Zoom In" class="px-2 py-0.5 hover:bg-neutral-200 font-bold">+</button>
+    <button id="zoomOutBtn" title="Zoom Out" class="px-2 py-0.5 hover:bg-neutral-200 font-bold">−</button>
+    <button id="zoomResetBtn" title="Reset Zoom" class="px-2 py-0.5 hover:bg-neutral-200 text-[10px]">RESET</button>
+  </div>
+</div>

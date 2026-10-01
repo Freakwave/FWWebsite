@@ -1,0 +1,14 @@
+<g id="node-human-goal" class="wf-node wf-node--human" data-node-key="human-goal" data-kind="human" tabindex="0" role="button" aria-label="Goal definition">
+  <rect class="wf-node__box" x="45" y="52" width="255" height="60"/>
+  <rect class="wf-node__header" x="45" y="52" width="255" height="18"/>
+  <text class="wf-node__kicker" x="54" y="65">HUMAN / STRATEGIC INPUT</text>
+  <text class="wf-node__title" x="58" y="87">Goal definition</text>
+  <text class="wf-node__meta" x="58" y="102">Scope boundaries &amp; guardrails</text>
+</g>
+<g id="node-requirements" class="wf-node" data-node-key="requirements" data-kind="agent" tabindex="0" role="button" aria-label="Requirements agent">
+  <rect class="wf-node__box" x="365" y="52" width="270" height="60"/>
+  <rect class="wf-node__header" x="365" y="52" width="270" height="18"/>
+  <text class="wf-node__kicker" x="374" y="65">AGENT-01 / REQUIREMENTS</text>
+  <text class="wf-node__title" x="380" y="87">Requirements Agent</text>
+  <text class="wf-node__meta" x="380" y="102">Stories, acceptance &amp; scope</text>
+</g>

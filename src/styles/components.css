@@ -1,0 +1,33 @@
+@layer components {
+  .toolbar-btn {
+    @apply px-2.5 py-1 bg-parchment border border-blueprint-border text-neutral-800 uppercase font-medium transition-colors hover:bg-neutral-200;
+  }
+
+  .toolbar-btn[aria-pressed='true'] {
+    @apply bg-drafting-ink text-white border-drafting-ink hover:bg-neutral-800;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm;
+  }
+
+  .modal-panel {
+    @apply relative w-full max-h-[90vh] overflow-y-auto p-6 bg-parchment border-2 border-drafting-ink shadow-2xl;
+  }
+
+  .modal-header {
+    @apply flex items-center justify-between pb-3 mb-4 border-b border-blueprint-border;
+  }
+
+  .modal-close {
+    @apply px-2.5 py-1 border border-drafting-ink font-mono text-xs font-bold transition-colors hover:bg-drafting-ink hover:text-white;
+  }
+
+  .spec-card {
+    @apply p-3 border border-blueprint-border bg-white/70;
+  }
+
+  .stat-card {
+    @apply p-2 border border-blueprint-border bg-white/50;
+  }
+}

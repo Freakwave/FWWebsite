@@ -1,0 +1,25 @@
+<g id="node-orchestrator" class="wf-node" data-node-key="orchestrator" data-kind="agent" tabindex="0" role="button" aria-label="Orchestrator agent">
+  <rect class="wf-node__box" x="470" y="315" width="240" height="52"/>
+  <rect class="wf-node__header" x="470" y="315" width="240" height="18"/>
+  <text class="wf-node__kicker" x="479" y="328">ORCHESTRATION / DISPATCH</text>
+  <text class="wf-node__title" x="485" y="349">Orchestrator Agent</text>
+  <text class="wf-node__meta" x="485" y="362">Coordinate &amp; integrate work</text>
+</g>
+<g id="node-dev-backend" class="wf-node wf-node--sm" data-node-key="dev-backend" data-kind="agent" tabindex="0" role="button" aria-label="Backend developer agent">
+  <rect class="wf-node__box" x="115" y="434" width="220" height="40"/>
+  <rect class="wf-node__header" x="115" y="434" width="220" height="14"/>
+  <text class="wf-node__kicker" x="124" y="444">DEV-01 / BACKEND</text>
+  <text class="wf-node__title" x="124" y="465">Backend implementation</text>
+</g>
+<g id="node-dev-frontend" class="wf-node wf-node--sm" data-node-key="dev-frontend" data-kind="agent" tabindex="0" role="button" aria-label="Frontend developer agent">
+  <rect class="wf-node__box" x="490" y="434" width="220" height="40"/>
+  <rect class="wf-node__header" x="490" y="434" width="220" height="14"/>
+  <text class="wf-node__kicker" x="499" y="444">DEV-02 / FRONTEND</text>
+  <text class="wf-node__title" x="499" y="465">Frontend implementation</text>
+</g>
+<g id="node-dev-domain" class="wf-node wf-node--sm" data-node-key="dev-domain" data-kind="agent" tabindex="0" role="button" aria-label="Domain developer agent">
+  <rect class="wf-node__box" x="865" y="434" width="220" height="40"/>
+  <rect class="wf-node__header" x="865" y="434" width="220" height="14"/>
+  <text class="wf-node__kicker" x="874" y="444">DEV-03 / DOMAIN</text>
+  <text class="wf-node__title" x="874" y="465">Domain logic</text>
+</g>

@@ -1,0 +1,25 @@
+<g id="node-architect" class="wf-node" data-node-key="architect" data-kind="agent" tabindex="0" role="button" aria-label="System architect agent">
+  <rect class="wf-node__box" x="335" y="185" width="230" height="60"/>
+  <rect class="wf-node__header" x="335" y="185" width="230" height="18"/>
+  <text class="wf-node__kicker" x="344" y="198">AGENT-02 / ARCHITECTURE</text>
+  <text class="wf-node__title" x="350" y="220">System Architect</text>
+  <text class="wf-node__meta" x="350" y="235">System design &amp; interfaces</text>
+</g>
+<g id="node-repo-context" class="wf-node wf-node--store wf-node--sm" data-node-key="repo-context" data-kind="support" tabindex="0" role="button" aria-label="Codebase context">
+  <rect class="wf-node__box" x="665" y="180" width="175" height="52"/>
+  <text class="wf-node__kicker" x="675" y="195">REPOSITORY / MEMORY</text>
+  <text class="wf-node__title" x="675" y="210">Codebase context</text>
+  <text class="wf-node__meta" x="675" y="224">Patterns &amp; system knowledge</text>
+</g>
+<g id="node-tasks" class="wf-node wf-node--artifact wf-node--sm" data-node-key="tasks" data-kind="support" tabindex="0" role="button" aria-label="Atomic tasks and interfaces">
+  <rect class="wf-node__box" x="560" y="244" width="250" height="35"/>
+  <path class="wf-node__mark" d="M 570 252 H 580 M 570 257 H 580"/>
+  <text class="wf-node__title" x="590" y="266">ATOMIC TASKS &amp; INTERFACES</text>
+</g>
+<g id="node-advisor" class="wf-node wf-node--human" data-node-key="advisor" data-kind="human" tabindex="0" role="button" aria-label="Human advisor">
+  <rect class="wf-node__box" x="945" y="195" width="210" height="68"/>
+  <rect class="wf-node__header" x="945" y="195" width="210" height="18"/>
+  <text class="wf-node__kicker" x="954" y="208">HUMAN ADVISOR / ON-DEMAND</text>
+  <text class="wf-node__title" x="960" y="232">Sparring &amp; guidance</text>
+  <text class="wf-node__meta" x="960" y="249">Trade-offs, gaps &amp; escalation</text>
+</g>

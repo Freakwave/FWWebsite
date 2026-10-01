@@ -8,80 +8,12 @@
 @import '@fontsource/jetbrains-mono/700.css';
 @import '@fontsource/jetbrains-mono/800.css';
 
+@import './base.css';
+@import './drafting.css';
+@import './animations.css';
+@import './components.css';
+@import './workflow.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --ink: #111111;
-  --accent: #ff3b00;
-  --paper: #f4f1ea;
-}
-
-body {
-  background-color: var(--paper);
-  color: var(--ink);
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.45) 0%, transparent 80%),
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(207, 200, 186, 0.35) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(207, 200, 186, 0.35) 40px);
-  background-size: auto, 40px 40px, 40px 40px;
-}
-
-.paper-noise {
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 999;
-}
-
-.ruler-ticks {
-  background-image: repeating-linear-gradient(to right, #aba394 0, #aba394 1px, transparent 1px, transparent 8px);
-  height: 6px;
-}
-
-.ruler-ticks-major {
-  background-image: repeating-linear-gradient(to right, #6e675b 0, #6e675b 1.5px, transparent 1.5px, transparent 40px);
-  height: 10px;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: 200%;
-  animation: marquee 34s linear infinite;
-}
-
-.animate-marquee:hover { animation-play-state: paused; }
-
-@keyframes dashflow {
-  from { stroke-dashoffset: 40; }
-  to { stroke-dashoffset: 0; }
-}
-
-.flow-active {
-  stroke-dasharray: 6 4;
-  animation: dashflow 1.2s linear infinite;
-}
-
-.loop-flow {
-  stroke-dasharray: 5 3;
-  animation: dashflow 0.9s linear infinite reverse;
-}
-
-.canvas-viewport { cursor: grab; }
-.canvas-viewport:active { cursor: grabbing; }
-
-.node-executing {
-  filter: drop-shadow(0 0 10px rgba(255, 59, 0, 0.65));
-  transition: filter 0.2s ease-in-out;
-}
-
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-thumb { background: #b7b0a2; }
-::-webkit-scrollbar-track { background: #eae5d9; }
