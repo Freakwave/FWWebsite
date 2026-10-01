@@ -28,7 +28,7 @@
         <div class="flex flex-wrap justify-between items-center text-[10px] font-mono text-neutral-600 pb-1.5 px-1 gap-2">
           <div class="flex items-center gap-3">
             <span class="font-bold text-drafting-ink bg-neutral-200 px-1.5 py-0.5">FIG. 94-M : END-TO-END AUTONOMOUS MULTI-AGENT PIPELINE</span>
-            <span class="hidden sm:inline">CLOSED HEALING LOOPS / HUMAN-IN-THE-LOOP CHECKPOINTS / HIL VERIFICATION</span>
+            <span class="hidden sm:inline">PARALLEL AGENT WORK / HUMAN ADVISORY / FINAL APPROVAL</span>
           </div>
           
           <div class="flex items-center gap-4">
@@ -54,7 +54,7 @@
           <span class="text-[10px] text-neutral-500 mr-1 hidden sm:inline">VIEW:</span>
           <button id="viewAllBtn" class="px-2.5 py-1 bg-drafting-ink text-white hover:bg-neutral-800 transition-colors uppercase font-medium shadow-xs">All Systems</button>
           <button id="viewAgentsBtn" class="px-2.5 py-1 bg-parchment border border-blueprint-border text-neutral-800 hover:bg-neutral-200 transition-colors uppercase font-medium">Autonomous Agents</button>
-          <button id="viewLoopsBtn" class="px-2.5 py-1 bg-parchment border border-blueprint-border text-neutral-800 hover:bg-neutral-200 transition-colors uppercase font-medium">Feedback Loops</button>
+          <button id="viewLoopsBtn" class="px-2.5 py-1 bg-parchment border border-blueprint-border text-neutral-800 hover:bg-neutral-200 transition-colors uppercase font-medium">Advisory Paths</button>
           <button id="viewHitlBtn" class="px-2.5 py-1 bg-parchment border border-blueprint-border text-neutral-800 hover:bg-neutral-200 transition-colors uppercase font-medium">Human Checkpoints (HITL)</button>
           
           <!-- Simulation Runner Button -->
@@ -95,7 +95,8 @@
 
         <!-- Blueprint Canvas Viewport -->
         <div id="blueprintCanvasWrapper" class="w-full h-full flex items-center justify-center p-3 canvas-viewport transition-transform duration-150 origin-center">
-          <svg id="multiAgentSvg" viewBox="0 0 1200 640" class="w-full h-auto max-h-[580px] drop-shadow-xs select-none" xmlns="http://www.w3.org/2000/svg">
+          <!-- @include src/partials/workflow-diagram.svg -->
+          <svg id="legacyMultiAgentSvg" style="display:none" viewBox="0 0 1200 700" class="w-full h-auto max-h-[580px] drop-shadow-xs select-none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <!-- Technical CAD grid -->
               <pattern id="cadGrid" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -115,7 +116,7 @@
 
               <!-- Marker Arrowheads -->
               <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" fill="#111111" />
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#374151" />
               </marker>
               <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                 <path d="M 0 1 L 10 5 L 0 9 z" fill="#ff3b00" />
@@ -124,7 +125,7 @@
                 <path d="M 0 1 L 10 5 L 0 9 z" fill="#008744" />
               </marker>
               <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e40af" />
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#1d4ed8" />
               </marker>
             </defs>
 
@@ -345,7 +346,7 @@
             </g>
 
             <!-- Dynamic Animated Simulation Packet Marker -->
-            <circle id="simPacket" cx="-50" cy="-50" r="6" fill="#ff3b00" stroke="#ffffff" stroke-width="2" opacity="0"/>
+            <circle id="simPacket" cx="-50" cy="-50" r="6" fill="#d97706" stroke="#fff" stroke-width="2" opacity="0"/>
 
           </svg>
 

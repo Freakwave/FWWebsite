@@ -60,11 +60,11 @@ export function initializeLandingPage(document = window.document, windowObject =
     const labels = {
       all: 'VIEW: ALL PIPELINE LAYERS',
       agents: 'VIEW: AUTONOMOUS AGENTS',
-      loops: 'VIEW: FEEDBACK LOOPS',
+      loops: 'VIEW: ADVISORY PATHS',
       hitl: 'VIEW: HUMAN CHECKPOINTS (HITL)',
     };
     setText(byId(document, 'currentViewModeLabel'), labels[mode]);
-    toast(({ all: 'All system layers visible.', agents: 'Autonomous agent synthesis nodes highlighted.', loops: 'Closed autonomous loops L-01, L-02, and L-03 highlighted.', hitl: 'Human-in-the-loop checkpoints highlighted.' })[mode]);
+    toast(({ all: 'All system layers visible.', agents: 'Autonomous agent stages highlighted.', loops: 'Human advisory and rework paths highlighted.', hitl: 'Human checkpoints highlighted.' })[mode]);
   }
 
   function setCalloutVisible(visible) {
@@ -215,12 +215,14 @@ export function initializeLandingPage(document = window.document, windowObject =
   });
 
   const waypoints = [
-    ['node-agent-01', 'agent-01', 30, 130], ['node-agent-01', 'agent-01', 122, 130],
-    ['node-hitl-01', 'hitl-01', 295, 130], ['node-agent-02', 'agent-02', 475, 130],
-    ['node-agent-03', 'agent-03', 675, 130], ['node-agent-04', 'agent-04', 875, 130],
-    ['node-agent-05', 'agent-05', 1010, 185], ['node-agent-05', 'agent-05', 890, 280],
-    ['node-hitl-02', 'hitl-02', 615, 280], ['node-agent-06', 'agent-06', 415, 280],
-    ['node-hitl-03', 'hitl-03', 215, 280], ['node-deploy', 'deploy', 45, 280],
+    ['node-hitl-01', 'hitl-01', 172, 82], ['node-agent-01', 'agent-01', 500, 82],
+    ['node-agent-02', 'agent-02', 450, 215], ['node-agent-03', 'agent-03', 590, 341],
+    ['node-agent-04', 'agent-04', 225, 454], ['node-dev-frontend', 'agent-04', 600, 454],
+    ['node-dev-domain', 'agent-04', 975, 454], ['node-pr-agent', 'agent-04', 210, 554],
+    ['node-agent-05', 'agent-05', 477, 554], ['node-hitl-02', 'hitl-02', 1050, 229],
+    ['node-qa-security', 'agent-05', 737, 554], ['node-deploy', 'deploy', 1002, 554],
+    ['node-hitl-03', 'hitl-03', 415, 649], ['node-agent-06', 'agent-06', 702, 649],
+    ['node-deploy', 'deploy', 1010, 649],
   ];
   const simulationButton = byId(document, 'runSimBtn');
   simulationButton?.addEventListener('click', () => {
@@ -231,7 +233,7 @@ export function initializeLandingPage(document = window.document, windowObject =
     simulationButton.classList.add('opacity-80');
     const packet = byId(document, 'simPacket');
     packet?.setAttribute('opacity', '1');
-    toast('Transmitting simulated PRD work-package through multi-agent DAG...');
+    toast('Transmitting simulated PRD work-package through the staged agent workflow...');
     let step = 0;
     const finish = () => {
       if (packet) packet.setAttribute('opacity', '0');
@@ -243,7 +245,7 @@ export function initializeLandingPage(document = window.document, windowObject =
     const advance = () => {
       if (step >= waypoints.length) {
         finish();
-        toast('Simulation complete: Package safely ingested by global production runtime.');
+        toast('Simulation complete: Approved release prepared for staging.');
         return;
       }
       const [id, key, x, y] = waypoints[step];

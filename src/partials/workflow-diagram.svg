@@ -1,0 +1,99 @@
+<svg id="multiAgentSvg" viewBox="0 0 1200 700" class="w-full h-auto max-h-[580px] drop-shadow-xs select-none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="cadGrid" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="none" stroke="#ddd6c7" stroke-width="0.5"/><circle cx="12" cy="12" r="0.5" fill="#bbb19e"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="#374151"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="#1d4ed8"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 1 L 10 5 L 0 9 z" fill="#008744"/></marker>
+  </defs>
+  <rect width="1200" height="700" fill="url(#cadGrid)"/>
+  <g font-family="JetBrains Mono" fill="#374151">
+    <text x="40" y="30" font-size="10" font-weight="700" letter-spacing="1.2">HUMAN-LED, AGENT-EXECUTED DELIVERY WORKFLOW</text>
+    <text x="1160" y="30" text-anchor="end" font-size="9">INTAKE / DESIGN / BUILD / VALIDATE / RELEASE</text>
+  </g>
+
+  <!-- Human-led initiation -->
+  <path d="M 300 82 H 365" fill="none" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <g id="node-hitl-01" class="dag-node hitl-node cursor-pointer group" data-node-key="hitl-01">
+    <rect x="45" y="52" width="255" height="60" rx="8" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+    <text x="172" y="77" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#fff">HUMAN</text>
+    <text x="172" y="96" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#fff">Goal definition &amp; guardrails</text>
+  </g>
+  <g id="node-agent-01" class="dag-node agent-node cursor-pointer group" data-node-key="agent-01">
+    <rect x="365" y="52" width="270" height="60" rx="8" fill="#1d4ed8" stroke="#1e40af" stroke-width="1.5"/>
+    <text x="500" y="77" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#fff">REQUIREMENTS AGENT</text>
+    <text x="500" y="96" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#dbeafe">Stories, acceptance criteria &amp; scope</text>
+  </g>
+
+  <!-- Phase 1: Concept and decomposition -->
+  <rect x="250" y="145" width="620" height="145" rx="10" fill="#fff" fill-opacity="0.65" stroke="#9ca3af" stroke-width="1.2"/>
+  <text x="270" y="167" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#111827">1. CONCEPT &amp; DECOMPOSITION</text>
+  <path d="M 500 112 V 187" fill="none" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <g id="node-agent-02" class="dag-node agent-node cursor-pointer group" data-node-key="agent-02">
+    <rect x="335" y="185" width="230" height="60" rx="8" fill="#1d4ed8" stroke="#1e40af" stroke-width="1.5"/>
+    <text x="450" y="210" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#fff">SYSTEM ARCHITECT AGENT</text>
+    <text x="450" y="229" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#dbeafe">System design &amp; interfaces</text>
+  </g>
+  <g class="cursor-pointer group" data-node-key="repo-context">
+    <rect x="665" y="180" width="175" height="52" rx="8" fill="#374151" stroke="#1f2937" stroke-width="1.5"/>
+    <text x="752" y="201" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">CODEBASE CONTEXT</text>
+    <text x="752" y="217" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#e5e7eb">Patterns &amp; system knowledge</text>
+  </g>
+  <path d="M 665 206 H 575" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <path d="M 450 245 V 262 H 560" fill="none" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <g><rect x="560" y="244" width="250" height="35" rx="6" fill="#f3f4f6" stroke="#9ca3af"/><text x="685" y="266" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#111827">ATOMIC TASKS &amp; INTERFACES</text></g>
+
+  <!-- Human advisor checkpoint -->
+  <g id="node-hitl-02" class="dag-node hitl-node cursor-pointer group" data-node-key="hitl-02">
+    <rect id="rectHitl02" x="945" y="195" width="210" height="68" rx="8" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+    <text id="titleHitl02" x="1050" y="222" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#fff">HUMAN ADVISOR</text>
+    <text x="1050" y="243" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#fff">On-demand sparring &amp; guidance</text>
+    <rect id="pillHitl02" x="1039" y="250" width="22" height="4" fill="#fff"/>
+    <rect id="headerHitl02" x="945" y="195" width="1" height="1" fill="#d97706"/>
+    <text id="statusHitl02" x="1050" y="260" text-anchor="middle" font-size="1" fill="#fff">HOLDING</text>
+  </g>
+  <path class="loop-element" d="M 870 215 H 945" fill="none" stroke="#1d4ed8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow-blue)"/>
+  <text x="907" y="205" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#1d4ed8">TRADE-OFFS</text>
+
+  <!-- Orchestration and parallel development -->
+  <path d="M 685 279 V 315" fill="none" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <g id="node-agent-03" class="dag-node agent-node cursor-pointer group" data-node-key="agent-03">
+    <rect x="470" y="315" width="240" height="52" rx="8" fill="#1d4ed8" stroke="#1e40af" stroke-width="1.5"/>
+    <text x="590" y="338" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#fff">ORCHESTRATOR AGENT</text>
+    <text x="590" y="355" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#dbeafe">Dispatch, coordinate &amp; integrate</text>
+  </g>
+  <rect x="45" y="382" width="1110" height="105" rx="10" fill="#fff" fill-opacity="0.65" stroke="#9ca3af" stroke-width="1.2"/>
+  <text x="65" y="404" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#111827">2. PARALLEL DEVELOPMENT</text>
+  <path d="M 590 367 V 424 H 225 V 434 M 590 424 H 600 V 434 M 590 424 H 975 V 434" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <g id="node-agent-04" class="dag-node agent-node cursor-pointer group" data-node-key="agent-04"><rect x="115" y="434" width="220" height="40" rx="7" fill="#1d4ed8" stroke="#1e40af"/><text x="225" y="459" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">DEV AGENT: BACKEND</text></g>
+  <g id="node-dev-frontend" class="dag-node agent-node cursor-pointer group"><rect x="490" y="434" width="220" height="40" rx="7" fill="#1d4ed8" stroke="#1e40af"/><text x="600" y="459" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">DEV AGENT: FRONTEND</text></g>
+  <g id="node-dev-domain" class="dag-node agent-node cursor-pointer group"><rect x="865" y="434" width="220" height="40" rx="7" fill="#1d4ed8" stroke="#1e40af"/><text x="975" y="459" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">DEV AGENT: DOMAIN LOGIC</text></g>
+  <path d="M 225 474 V 500 H 240 M 600 474 V 500 H 240 M 975 474 V 500 H 240" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path class="loop-element" d="M 225 454 C 460 454 760 350 945 230" fill="none" stroke="#1d4ed8" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arrow-blue)"/>
+  <path class="loop-element" d="M 600 454 C 700 430 830 310 945 230" fill="none" stroke="#1d4ed8" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arrow-blue)"/>
+  <path class="loop-element" d="M 975 434 C 1020 365 1030 310 1035 263" fill="none" stroke="#1d4ed8" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#arrow-blue)"/>
+  <text x="878" y="348" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#1d4ed8">SPEC QUESTIONS</text>
+
+  <!-- Phase 3: Pull request and quality assurance -->
+  <rect x="45" y="495" width="1110" height="105" rx="10" fill="#fff" fill-opacity="0.65" stroke="#9ca3af" stroke-width="1.2"/>
+  <text x="65" y="517" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#111827">3. PR CREATION &amp; VALIDATION</text>
+  <g id="node-pr-agent" class="dag-node agent-node cursor-pointer group"><rect x="110" y="530" width="200" height="48" rx="7" fill="#1d4ed8" stroke="#1e40af"/><text x="210" y="551" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">PULL REQUEST AGENT</text><text x="210" y="567" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#dbeafe">Assemble changes &amp; evidence</text></g>
+  <g id="node-agent-05" class="dag-node agent-node cursor-pointer group" data-node-key="agent-05"><rect id="rectAgent05" x="375" y="530" width="205" height="48" rx="7" fill="#1d4ed8" stroke="#1e40af"/><text x="477" y="551" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">QA TEST AGENT</text><text x="477" y="567" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#dbeafe">E2E &amp; regression checks</text></g>
+  <g id="node-qa-security" class="dag-node agent-node cursor-pointer group"><rect x="635" y="530" width="205" height="48" rx="7" fill="#1d4ed8" stroke="#1e40af"/><text x="737" y="551" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">SECURITY &amp; QUALITY</text><text x="737" y="567" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#dbeafe">Risk, standards &amp; code review</text></g>
+  <g><rect x="885" y="530" width="235" height="48" rx="7" fill="#f3f4f6" stroke="#9ca3af"/><text x="1002" y="550" text-anchor="middle" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#111827">CONSOLIDATED PR DOSSIER</text><text x="1002" y="566" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#374151">Diff, test results &amp; review notes</text></g>
+  <path d="M 240 500 V 530" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path d="M 310 554 H 375 M 310 545 H 635 M 580 554 H 885 M 840 554 H 885" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path id="path-blocked-link" class="loop-element" d="M 477 530 C 560 460 850 320 945 245" fill="none" stroke="#1d4ed8" stroke-width="1.7" stroke-dasharray="5 4" marker-end="url(#arrow-blue)"/>
+  <path id="path-resolved-link" d="M 477 530 C 560 460 850 320 945 245" fill="none" stroke="#008744" stroke-width="2.2" opacity="0" marker-end="url(#arrow-green)"/>
+  <g id="blockedCrossX" style="display:none"><circle cx="734" cy="405" r="9" fill="#fff" stroke="#d97706" stroke-width="2"/><path d="M 730 401 L 738 409 M 738 401 L 730 409" stroke="#d97706" stroke-width="2"/></g>
+  <path d="M 1002 578 V 620 H 860" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- Final human gate, release and completion -->
+  <g id="node-hitl-03" class="dag-node hitl-node cursor-pointer group" data-node-key="hitl-03"><rect x="300" y="620" width="230" height="58" rx="8" fill="#d97706" stroke="#b45309" stroke-width="2"/><text x="415" y="644" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#fff">HUMAN FINAL GATE</text><text x="415" y="663" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#fff">Acceptance &amp; merge approval</text></g>
+  <path d="M 860 620 H 530" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <g id="node-agent-06" class="dag-node agent-node cursor-pointer group" data-node-key="agent-06"><rect x="600" y="620" width="205" height="58" rx="8" fill="#1d4ed8" stroke="#1e40af"/><text x="702" y="644" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#fff">DOCS &amp; RELEASE AGENT</text><text x="702" y="663" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#dbeafe">Release notes &amp; staging prep</text></g>
+  <g id="node-deploy" class="cursor-pointer group" data-node-key="deploy"><rect x="900" y="620" width="220" height="58" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/><text x="1010" y="644" text-anchor="middle" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#111827">STAGING DEPLOYMENT</text><text x="1010" y="663" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#374151">Documentation updated</text></g>
+  <path d="M 530 649 H 600 M 805 649 H 900" fill="none" stroke="#374151" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <path class="loop-element" d="M 300 649 C 215 649 185 570 185 367 H 470" fill="none" stroke="#d97706" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="128" y="615" font-family="JetBrains Mono" font-size="8" fill="#b45309">FEEDBACK / REWORK</text>
+  <circle id="simPacket" cx="-50" cy="-50" r="6" fill="#d97706" stroke="#fff" stroke-width="2" opacity="0"/>
+</svg>
