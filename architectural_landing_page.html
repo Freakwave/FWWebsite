@@ -96,7 +96,8 @@
         <!-- Blueprint Canvas Viewport -->
         <div id="blueprintCanvasWrapper" class="w-full h-full flex items-center justify-center p-3 canvas-viewport transition-transform duration-150 origin-center">
           <!-- @include src/partials/workflow-diagram.svg -->
-          <svg id="legacyMultiAgentSvg" style="display:none" viewBox="0 0 1200 700" class="w-full h-auto max-h-[580px] drop-shadow-xs select-none" xmlns="http://www.w3.org/2000/svg">
+          <template id="legacyPipelineTemplate">
+          <svg id="legacyMultiAgentSvg" viewBox="0 0 1200 700" class="w-full h-auto max-h-[580px] drop-shadow-xs select-none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <!-- Technical CAD grid -->
               <pattern id="cadGrid" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -349,6 +350,7 @@
             <circle id="simPacket" cx="-50" cy="-50" r="6" fill="#d97706" stroke="#fff" stroke-width="2" opacity="0"/>
 
           </svg>
+          </template>
 
           <!-- Pinned Safety-Orange Callout Box with Reliable Dismissal -->
           <div id="inspectorBadge" class="absolute left-[44%] sm:left-[46%] md:left-[48%] top-[55%] sm:top-[56%] -translate-y-1/2 z-40 transition-all duration-300 w-[280px] sm:w-[340px]">
