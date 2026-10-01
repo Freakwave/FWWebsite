@@ -1,0 +1,28 @@
+import forms from '@tailwindcss/forms';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./architectural_landing_page.html', './src/**/*.{html,js}'],
+  theme: {
+    extend: {
+      colors: {
+        parchment: '#f4f1ea',
+        'parchment-subtle': '#eae6dc',
+        'parchment-panel': '#dfd9cc',
+        'blueprint-border': '#cfc8ba',
+        'blueprint-line': '#ded8ca',
+        'drafting-ink': '#111111',
+        'technical-orange': '#ff3b00',
+        'technical-orange-hover': '#e03400',
+        'gate-emerald': '#008744',
+        'gate-amber': '#d97706',
+        'hitl-blue': '#1e40af',
+      },
+      fontFamily: {
+        sans: ['Space Grotesk', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+    },
+  },
+  plugins: [forms],
+};

@@ -1,0 +1,122 @@
+name: Test and deploy
+
+on:
+  push:
+    # master is included while the repository's default branch is main.
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fwwebsite-production
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Test and build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit and API tests
+        run: npm test
+
+      - name: Validate Ubuntu setup script
+        run: bash -n deploy/setup-ubuntu.sh
+
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Run browser tests
+        run: npm run test:e2e
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Package deployable files
+        if: github.event_name == 'push'
+        run: |
+          mkdir -p deploy-bundle
+          cp -a dist server package.json package-lock.json Dockerfile compose.yaml deploy-bundle/
+          tar -C deploy-bundle -czf fwwebsite-${GITHUB_SHA}.tar.gz .
+
+      - name: Configure SSH
+        if: github.event_name == 'push'
+        env:
+          DEPLOY_SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Upload release archive
+        if: github.event_name == 'push'
+        env:
+          DEPLOY_HOST: 31.70.118.33
+          DEPLOY_USER: fwdeploy
+          DEPLOY_PORT: '22'
+        run: |
+          scp -i ~/.ssh/id_ed25519 -P "$DEPLOY_PORT" \
+            -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            "fwwebsite-${GITHUB_SHA}.tar.gz" \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:/tmp/fwwebsite-${GITHUB_SHA}.tar.gz"
+
+      - name: Deploy Docker release and verify health
+        if: github.event_name == 'push'
+        env:
+          DEPLOY_HOST: 31.70.118.33
+          DEPLOY_USER: fwdeploy
+          DEPLOY_PORT: '22'
+          DEPLOY_PATH: /var/www/fwwebsite
+        run: |
+          ssh -i ~/.ssh/id_ed25519 -p "$DEPLOY_PORT" \
+            -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            "bash -s -- '$DEPLOY_PATH' '$GITHUB_SHA'" <<'REMOTE'
+          set -euo pipefail
+          DEPLOY_PATH="$1"
+          RELEASE_ID="$2"
+          RELEASE_PATH="$DEPLOY_PATH/releases/$RELEASE_ID"
+          ARCHIVE="/tmp/fwwebsite-$RELEASE_ID.tar.gz"
+
+          mkdir -p "$RELEASE_PATH"
+          tar -xzf "$ARCHIVE" -C "$RELEASE_PATH"
+          rm -f "$ARCHIVE"
+          PREVIOUS_RELEASE=""
+          if [ -L "$DEPLOY_PATH/current" ]; then
+            PREVIOUS_RELEASE="$(readlink -f "$DEPLOY_PATH/current")"
+          fi
+          ln -sfn "$RELEASE_PATH" "$DEPLOY_PATH/current.next"
+          mv -Tf "$DEPLOY_PATH/current.next" "$DEPLOY_PATH/current"
+          docker compose --project-name fwwebsite --file "$DEPLOY_PATH/current/compose.yaml" up --detach --build --remove-orphans
+
+          if ! curl --fail --silent --show-error --retry 10 --retry-delay 2 \
+            http://127.0.0.1:3000/healthz; then
+            if [ -n "$PREVIOUS_RELEASE" ]; then
+              ln -sfn "$PREVIOUS_RELEASE" "$DEPLOY_PATH/current.rollback"
+              mv -Tf "$DEPLOY_PATH/current.rollback" "$DEPLOY_PATH/current"
+              docker compose --project-name fwwebsite --file "$DEPLOY_PATH/current/compose.yaml" up --detach --build --remove-orphans
+            else
+              docker compose --project-name fwwebsite --file "$DEPLOY_PATH/current/compose.yaml" down
+              rm -f "$DEPLOY_PATH/current"
+            fi
+            exit 1
+          fi
+          REMOTE
