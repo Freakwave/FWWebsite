@@ -107,8 +107,11 @@ jobs:
           mv -Tf "$DEPLOY_PATH/current.next" "$DEPLOY_PATH/current"
           docker compose --project-name fwwebsite --file "$DEPLOY_PATH/current/compose.yaml" up --detach --build --remove-orphans
 
-          if ! curl --fail --silent --show-error --retry 10 --retry-delay 2 \
+          if ! curl --fail --silent --show-error --retry 30 --retry-delay 2 --retry-max-time 60 --retry-all-errors \
             http://127.0.0.1:3000/healthz; then
+            echo "Health check failed; collecting container state before rollback."
+            docker compose --project-name fwwebsite --file "$DEPLOY_PATH/current/compose.yaml" ps --all || true
+            docker compose --project-name fwwebsite --file "$DEPLOY_PATH/current/compose.yaml" logs --no-color --tail=100 || true
             if [ -n "$PREVIOUS_RELEASE" ]; then
               ln -sfn "$PREVIOUS_RELEASE" "$DEPLOY_PATH/current.rollback"
               mv -Tf "$DEPLOY_PATH/current.rollback" "$DEPLOY_PATH/current"
