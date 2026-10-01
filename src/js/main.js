@@ -12,7 +12,7 @@ export function initializeLandingPage(document = window.document, windowObject =
   const state = createInitialState();
   const toast = createToast(document);
   const playClick = createClickSound(windowObject);
-  const modalIds = ['experienceModal', 'agentTaxonomyModal', 'governanceModal', 'dossierModal', 'contactModal'];
+  const modalIds = ['experienceModal', 'agentTaxonomyModal', 'governanceModal', 'dossierModal'];
   const modals = modalIds.map((id) => byId(document, id)).filter(Boolean);
   const closeModal = (modal) => {
     if (!modal) return;
@@ -298,7 +298,6 @@ export function initializeLandingPage(document = window.document, windowObject =
     navGovernanceBtn: 'governanceModal',
     navDossierBtn: 'dossierModal',
     openDossierBtn: 'dossierModal',
-    navContactBtn: 'contactModal',
   };
   Object.entries(modalOpeners).forEach(([buttonId, modalId]) => {
     byId(document, buttonId)?.addEventListener('click', () => openModal(byId(document, modalId)));
@@ -320,15 +319,6 @@ export function initializeLandingPage(document = window.document, windowObject =
   windowObject.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') modals.forEach((modal) => closeModal(modal));
   });
-  byId(document, 'contactForm')?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const organization = byId(document, 'formOrg')?.value ?? '';
-    const email = byId(document, 'formEmail')?.value ?? '';
-    closeModal(byId(document, 'contactModal'));
-    event.currentTarget.reset();
-    toast(`Inquiry for Eric Giemsa logged from ${organization} (${email}). You will be contacted shortly.`);
-  });
-
   return { state, setFilterMode, setZoom, resolveEscalation, inspectNode, openModal, closeModal };
 }
 

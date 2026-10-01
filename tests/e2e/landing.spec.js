@@ -28,12 +28,8 @@ test('landing page loads and exposes key interactions', async ({ page }) => {
   await expect(page.locator('#hudPipelineStatus')).toContainText('CLEARED');
   await page.locator('#resolveEscalationBtn').click();
 
-  await page.locator('#navContactBtn').click();
-  await page.locator('#formOrg').fill('Example Engineering');
-  await page.locator('#formEmail').fill('lead@example.com');
-  await page.locator('#contactForm button[type="submit"]').click();
-  await expect(page.locator('#contactModal')).toBeHidden();
-  await expect(page.locator('#toastMessage')).toContainText('Example Engineering');
+  await expect(page.locator('#navContactBtn')).toHaveCount(0);
+  await expect(page.locator('#contactForm')).toHaveCount(0);
 
   expect(pageErrors).toEqual([]);
 });
