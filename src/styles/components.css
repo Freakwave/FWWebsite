@@ -4,7 +4,7 @@
   }
 
   .toolbar-btn[aria-pressed='true'] {
-    @apply bg-drafting-ink text-white border-drafting-ink hover:bg-neutral-800;
+    @apply bg-technical-orange text-white border-technical-orange hover:bg-technical-orange-hover;
   }
 
   .modal-backdrop {
@@ -20,14 +20,14 @@
   }
 
   .modal-close {
-    @apply px-2.5 py-1 border border-drafting-ink font-mono text-xs font-bold transition-colors hover:bg-drafting-ink hover:text-white;
+    @apply px-2.5 py-1 border border-drafting-ink font-mono text-xs font-bold transition-colors hover:bg-technical-orange hover:border-technical-orange hover:text-white;
   }
 
   .spec-card {
-    @apply p-3 border border-blueprint-border bg-white/70;
+    @apply p-3 border border-blueprint-border bg-parchment-panel;
   }
 
   .stat-card {
-    @apply p-2 border border-blueprint-border bg-white/50;
+    @apply p-2 border border-blueprint-border bg-parchment-subtle;
   }
 }
