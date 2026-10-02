@@ -8,12 +8,12 @@
   }
 
   .ruler-ticks {
-    background-image: repeating-linear-gradient(to right, #aba394 0, #aba394 1px, transparent 1px, transparent 8px);
+    background-image: repeating-linear-gradient(to right, #688172 0, #688172 1px, transparent 1px, transparent 8px);
     height: 6px;
   }
 
   .ruler-ticks-major {
-    background-image: repeating-linear-gradient(to right, #6e675b 0, #6e675b 1.5px, transparent 1.5px, transparent 40px);
+    background-image: repeating-linear-gradient(to right, #a4b7aa 0, #a4b7aa 1.5px, transparent 1.5px, transparent 40px);
     height: 10px;
   }
 
