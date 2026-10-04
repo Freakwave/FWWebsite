@@ -5,8 +5,16 @@ test('landing page loads and exposes key interactions', async ({ page }) => {
   page.on('pageerror', (error) => pageErrors.push(error.message));
 
   await page.goto('/');
-  await expect(page).toHaveTitle(/GIEMSA/);
-  await expect(page.getByRole('heading', { name: /AUTONOMOUS AGENT WORKFLOWS/i })).toBeVisible();
+  await expect(page).toHaveTitle(/Human-Centered AI/i);
+  await expect(page.getByRole('heading', { name: /AI SHOULD MAKE GOOD WORK CLEARER/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /What agent design teaches us about working together/i })).toBeVisible();
+  await expect(page.getByText(/Designing for AI is applied organizational development/i)).toBeVisible();
+  await expect(page.getByRole('tab', { name: 'AI' })).toHaveAttribute('aria-selected', 'true');
+  await page.getByRole('tab', { name: 'PROJECT MANAGEMENT' }).click();
+  await expect(page.getByRole('tabpanel', { name: /PROJECT MANAGEMENT/i })).toContainText(/develop the stories and insights together later/i);
+  await page.getByRole('tab', { name: 'RESCUE DOGS' }).click();
+  await expect(page.locator('#panel-rescue-dogs')).toContainText(/develop the content together later/i);
+  await page.getByRole('tab', { name: 'AI' }).click();
 
   await page.getByRole('button', { name: /CAREER_TRACK/i }).click();
   await expect(page.locator('#experienceModal')).toBeVisible();
@@ -42,7 +50,7 @@ test('renders the workflow diagram with unique ids and no legacy pipeline', asyn
 test('supports a mobile viewport, zoom, and a full simulation run', async ({ browser }) => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: /AUTONOMOUS AGENT WORKFLOWS/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /AI SHOULD MAKE GOOD WORK CLEARER/i })).toBeVisible();
 
   await page.locator('#zoomInBtn').click();
   await expect(page.locator('#blueprintCanvasWrapper')).toHaveCSS('transform', /matrix\(1\.15/);
