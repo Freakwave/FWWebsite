@@ -13,7 +13,7 @@ test('landing page loads and exposes key interactions', async ({ page }) => {
   await page.getByRole('tab', { name: 'PROJECT MANAGEMENT' }).click();
   await expect(page.getByRole('tabpanel', { name: /PROJECT MANAGEMENT/i })).toContainText(/develop the stories and insights together later/i);
   await page.getByRole('tab', { name: 'RESCUE DOGS' }).click();
-  await expect(page.getByRole('tabpanel', { name: /RESCUE DOG LEADERSHIP/i })).toContainText(/develop the content together later/i);
+  await expect(page.locator('#panel-rescue-dogs')).toContainText(/develop the content together later/i);
   await page.getByRole('tab', { name: 'AI' }).click();
 
   await page.getByRole('button', { name: /CAREER_TRACK/i }).click();
