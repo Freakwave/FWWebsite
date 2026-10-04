@@ -9,6 +9,12 @@ test('landing page loads and exposes key interactions', async ({ page }) => {
   await expect(page.getByRole('heading', { name: /AI SHOULD MAKE GOOD WORK CLEARER/i })).toBeVisible();
   await expect(page.getByRole('heading', { name: /What agent design teaches us about working together/i })).toBeVisible();
   await expect(page.getByText(/Designing for AI is applied organizational development/i)).toBeVisible();
+  await expect(page.getByRole('tab', { name: 'AI' })).toHaveAttribute('aria-selected', 'true');
+  await page.getByRole('tab', { name: 'PROJECT MANAGEMENT' }).click();
+  await expect(page.getByRole('tabpanel', { name: /PROJECT MANAGEMENT/i })).toContainText(/develop the stories and insights together later/i);
+  await page.getByRole('tab', { name: 'RESCUE DOGS' }).click();
+  await expect(page.getByRole('tabpanel', { name: /RESCUE DOG LEADERSHIP/i })).toContainText(/develop the content together later/i);
+  await page.getByRole('tab', { name: 'AI' }).click();
 
   await page.getByRole('button', { name: /CAREER_TRACK/i }).click();
   await expect(page.locator('#experienceModal')).toBeVisible();
